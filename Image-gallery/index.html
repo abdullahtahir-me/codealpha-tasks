@@ -10,13 +10,51 @@
 
 <body>
 
-    <img src="https://loremflickr.com/1920/1080?random=1" />
-    <img src="https://loremflickr.com/1920/1080?random=2" />
-    <img src="https://loremflickr.com/1920/1080?random=3" />
-    <img src="https://loremflickr.com/1920/1080?random=4" />
-    <img src="https://loremflickr.com/1920/1080?random=5" />
-    <script>
+    <div class="container">
+        <div class="main">
+            <div class="image-bar">
 
+                <img src="https://loremflickr.com/1336/786?random=1" class="image-stack" onclick="change(this.src)">
+                <img src="https://loremflickr.com/1336/786?random=2" class="image-stack" onclick="change(this.src)">
+                <img src="https://loremflickr.com/1336/786?random=3" class="image-stack" onclick="change(this.src)">
+                <img src="https://loremflickr.com/1336/786?random=4" class="image-stack" onclick="change(this.src)">
+                <img src="https://loremflickr.com/1336/786?random=5" class="image-stack" onclick="change(this.src)">
+                <img src="https://loremflickr.com/1336/786?random=6" class="image-stack" onclick="change(this.src)">
+                
+            </div>
+            <div class="image-preview">
+                <img src="back.svg" class="btn" id="back" alt="back" onclick="prev()">
+                <img src="https://loremflickr.com/1336/786?random=1" class="image-stack" id="preview">
+                <img src="back.svg" class="btn" id="next" alt="back" onclick="next()">
+                
+            </div>
+        </div>
+    </div>
+        
+    <script>
+        let random = 1;
+        preview = document.getElementById("preview");
+        function next(){
+            if(random<6){
+                random++;
+            }else{
+                random = 1
+            }
+            let path = "https://loremflickr.com/1336/786?random="+random;
+            preview.src= path;
+        }
+        function prev(){
+            if(random>1){
+                random--;
+            }else{
+                random = 6
+            }
+            let path = "https://loremflickr.com/1336/786?random="+random;
+            preview.src= path;
+        }
+        function change(path){
+            preview.src= path;
+        }
     </script>
 </body>
 
